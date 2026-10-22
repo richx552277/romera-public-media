@@ -79,7 +79,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
-          python -m pip install pillow==11.3.0 numpy==2.2.6
+          python -m pip install pillow==11.3.0 numpy==2.2.6 PyNaCl==1.6.0
           command -v ffmpeg
           command -v ffprobe
           python cloud-auto/verify_sources.py
@@ -98,6 +98,7 @@ jobs:
       - name: Generate, review, render, persist draft under durable lock
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          ROMERA_DRAFT_KEY: ${{ secrets.ROMERA_DRAFT_KEY }}
         run: python cloud-auto/cloud_draft.py
       - name: Draft outcome
         if: always()

@@ -3,3 +3,4 @@ __pycache__/
 *.log
 *.sqlite3-wal
 *.sqlite3-shm
+cloud-auto/portable/romera-cloud-publisher/cloud-state/

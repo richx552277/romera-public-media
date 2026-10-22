@@ -18,13 +18,15 @@
       "cover_sha256": "5ffbdd102a7e50bfba44d1b1db425b3b02ae2cfa9307183053270bb7a2a1c86e",
       "approval": "ZF-OPS-ROMERA-CLOUD-AUTO-001",
       "publish_at": "2026-10-22T19:07:00+09:00",
-      "delivery_url": null,
+      "delivery_url": "https://raw.githubusercontent.com/richx552277/romera-public-media/d8d504e696658c664899d49d659bbbb8c14ab5ab/approved/cace97111a1f653f1b7b36f6fd9a4ad772ff401416b7eb8fc94c30f639121869.mp4",
       "status": "HOLD",
       "media_id": null,
       "permalink": null,
       "meta_scheduled": false,
       "rights_music_native": "EXCLUDED/NOT_PASS",
-      "payload_digest": "bf5d8a9ebfcb969261781ec81bc9a100adf4d2fc5a985fc5ceed5f38ef19ffcb"
+      "payload_digest": "bf5d8a9ebfcb969261781ec81bc9a100adf4d2fc5a985fc5ceed5f38ef19ffcb",
+      "delivery_status": "HTTP200_SHA256_MATCH",
+      "delivery_verified_at": "2026-10-22T05:17:02.924128+00:00"
     },
     {
       "id": "romera-002",
@@ -36,13 +38,15 @@
       "cover_sha256": "76f5ea56be4eb7ffb84c150e7e2e8f160420206deaab6c89fcc5d986efb4d7e4",
       "approval": "ZF-OPS-ROMERA-CLOUD-AUTO-001",
       "publish_at": "2026-10-25T21:07:00+09:00",
-      "delivery_url": null,
+      "delivery_url": "https://raw.githubusercontent.com/richx552277/romera-public-media/d8d504e696658c664899d49d659bbbb8c14ab5ab/approved/77262f6ef0d66dbfe170327e33887aea9aa4c6f5a7e539eb0c3210483059acfa.mp4",
       "status": "HOLD",
       "media_id": null,
       "permalink": null,
       "meta_scheduled": false,
       "rights_music_native": "EXCLUDED/NOT_PASS",
-      "payload_digest": "f759db029c884b230615958764b3e729c47f99839e8cc8c24c1fe8f6fdcd2be7"
+      "payload_digest": "f759db029c884b230615958764b3e729c47f99839e8cc8c24c1fe8f6fdcd2be7",
+      "delivery_status": "HTTP200_SHA256_MATCH",
+      "delivery_verified_at": "2026-10-22T05:17:02.924128+00:00"
     },
     {
       "id": "romera-003",
@@ -54,13 +58,15 @@
       "cover_sha256": "6e3d7e6b9c96b185fbc077b7bd13864b9d63e6ce896ed10fc2770661b1b39259",
       "approval": "ZF-OPS-ROMERA-CLOUD-AUTO-001",
       "publish_at": "2026-10-26T19:07:00+09:00",
-      "delivery_url": null,
+      "delivery_url": "https://raw.githubusercontent.com/richx552277/romera-public-media/d8d504e696658c664899d49d659bbbb8c14ab5ab/approved/574a4e64b1930b85856d6af737812087fcb4ab973a1c6c0b9788564f924526db.mp4",
       "status": "HOLD",
       "media_id": null,
       "permalink": null,
       "meta_scheduled": false,
       "rights_music_native": "EXCLUDED/NOT_PASS",
-      "payload_digest": "7bb6cb98aeffc83a70d8ffff6f41bd397acf1262d600495b55621ea66e3a6164"
+      "payload_digest": "7bb6cb98aeffc83a70d8ffff6f41bd397acf1262d600495b55621ea66e3a6164",
+      "delivery_status": "HTTP200_SHA256_MATCH",
+      "delivery_verified_at": "2026-10-22T05:17:02.924128+00:00"
     },
     {
       "id": "romera-004",
@@ -72,13 +78,15 @@
       "cover_sha256": "c90b460132554cc0a27c17f317975a3b51b9570c94874a2ac3dcba6698688e1c",
       "approval": "ZF-OPS-ROMERA-CLOUD-AUTO-001",
       "publish_at": "2026-10-27T19:07:00+09:00",
-      "delivery_url": null,
+      "delivery_url": "https://raw.githubusercontent.com/richx552277/romera-public-media/d8d504e696658c664899d49d659bbbb8c14ab5ab/approved/e47e7aa28848eda8ed7d1dfd88eb517c703246bb42c4a2279de7a6aa7ada112c.mp4",
       "status": "HOLD",
       "media_id": null,
       "permalink": null,
       "meta_scheduled": false,
       "rights_music_native": "EXCLUDED/NOT_PASS",
-      "payload_digest": "debb3ef9e0f4ca57aee179d55769f766a515c08ce2dd168003b59c392b430161"
+      "payload_digest": "debb3ef9e0f4ca57aee179d55769f766a515c08ce2dd168003b59c392b430161",
+      "delivery_status": "HTTP200_SHA256_MATCH",
+      "delivery_verified_at": "2026-10-22T05:17:02.924128+00:00"
     }
   ],
   "events": [
@@ -108,6 +116,15 @@
       "epoch": 2,
       "previous": "55525d55f563a369c09e35c87cc74653995d1d6f64cc9e0bdbedc596eefc0c7e",
       "hash": "d7487b5037d1ff807cc03fbdf1f0f8594c6e104255859f8cf85f9086f117628c"
+    },
+    {
+      "seq": 4,
+      "at": "2026-10-22T05:31:53.602518+00:00",
+      "kind": "IMMUTABLE_DELIVERY_VERIFIED_CREDENTIAL_HOLD",
+      "run": "authorized-cloud-setup",
+      "epoch": 2,
+      "previous": "d7487b5037d1ff807cc03fbdf1f0f8594c6e104255859f8cf85f9086f117628c",
+      "hash": "27fb56c5abb28763a09ff69c88fcc646a0ce9f44b1923059e70695837b6feccf"
     }
   ],
   "handoff": {
@@ -123,7 +140,11 @@
     "app_id": null,
     "granted_scopes": [],
     "expires_at": null,
-    "observed_at": null
+    "observed_at": null,
+    "configured_parent_app_id": "2289492298556821",
+    "configured_instagram_app_id": "1073251138696790",
+    "app_configuration_has_publish": true,
+    "token_app_binding": "UNVERIFIED"
   },
   "generation": {
     "release_enabled": false,
@@ -142,5 +163,14 @@
       }
     }
   },
-  "rights_music_native": "EXCLUDED/NOT_PASS"
+  "rights_music_native": "EXCLUDED/NOT_PASS",
+  "legacy_reference": {
+    "cutover_history_sha256": "4f0cd3de70e6e44d8ee5c0bfbc3533437dfc8851986a4d8bb14397328a85f73e",
+    "source_records": 35,
+    "source_record_disposition": "RECONCILE_HOLD, preserved in original PC journal; no merge",
+    "known_local_guards": 7,
+    "exact_cutover_hash_matches": 6,
+    "remaining_guard_semantically_equal_except_error_messages": true,
+    "all_external_writers_excluded": false
+  }
 }
