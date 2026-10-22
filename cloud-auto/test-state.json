@@ -6,9 +6,19 @@
   "support": "ZF-DEV",
   "epoch": 2,
   "kill_switch": true,
-  "active_run": null,
+  "active_run": "39727328412",
   "jobs": [],
-  "events": [],
+  "events": [
+    {
+      "seq": 1,
+      "at": "2026-10-22T05:19:16.553412+00:00",
+      "kind": "LOCK_ACQUIRED",
+      "run": "39727328412",
+      "epoch": 2,
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e0c32ce34cc0f4c94b7f66efed1696aebdc0b7d214e73d692d5e7e3d57567c96"
+    }
+  ],
   "handoff": {
     "status": "HOLD",
     "previous_host": "Windows PC",
