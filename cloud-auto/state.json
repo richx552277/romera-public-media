@@ -6,7 +6,7 @@
   "support": "ZF-DEV",
   "epoch": 2,
   "kill_switch": true,
-  "active_run": null,
+  "active_run": "39727415852",
   "jobs": [
     {
       "id": "romera-001",
@@ -81,7 +81,17 @@
       "payload_digest": "debb3ef9e0f4ca57aee179d55769f766a515c08ce2dd168003b59c392b430161"
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "seq": 1,
+      "at": "2026-10-22T05:23:14.750895+00:00",
+      "kind": "LOCK_ACQUIRED",
+      "run": "39727415852",
+      "epoch": 2,
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "9bff3e2700245fe4ce7ea9bbe5517c8007b86e9546d3e7b7a836a7d3768139de"
+    }
+  ],
   "handoff": {
     "status": "HOLD",
     "previous_host": "Windows PC",
