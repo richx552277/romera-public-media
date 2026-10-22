@@ -68,7 +68,8 @@ class GithubCAS:
         return json.loads(base64.b64decode(v['content'])),v['sha']
     def put(self,v,rev):
         data=base64.b64encode((json.dumps(v,ensure_ascii=False,indent=2)+'\n').encode()).decode()
-        result=request('PUT',self.url,self.token,{'message':'Romera durable event '+v['events'][-1]['kind'], 'content':data,'sha':rev,'branch':'main'})
+        kind=v['events'][-1]['kind'] if v['events'] else 'GENESIS'
+        result=request('PUT',self.url,self.token,{'message':'Romera durable event '+kind, 'content':data,'sha':rev,'branch':'main'})
         return result['content']['sha']
 
 def initial(jobs):
