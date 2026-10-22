@@ -110,6 +110,7 @@ def run():
     if __import__('hashlib').sha256(remote).hexdigest()!=c.sha(archive):raise c.Hold('DRAFT_STORAGE_READBACK')
     def finish(v):
         journal.owned(v);v['generation']['cycles'][cycle].update(status=result['status'],video_sha256=result.get('video_sha256'),
+            rendered=result.get('rendered',False),reason=result['status'],
             automated_quality_pass=result.get('automated_quality_pass',False),publication='HOLD',persisted=True,
             archive_path=rel,archive_sha256=c.sha(archive),encrypted=True,storage_readback=True,
             encryption_roundtrip=True,provider_diagnostics=result['provider_diagnostics'])
