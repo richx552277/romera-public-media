@@ -161,6 +161,15 @@
       "epoch": 2,
       "previous": "dc318904ab0ee27f11df4acbc371f014b274495802de787ffe83bd6dca998561",
       "hash": "ce9f2e750770195cd249f24cfac426875615b80b22d5ed24df9620e6ced35e5e"
+    },
+    {
+      "seq": 9,
+      "at": "2026-10-22T05:41:07.368858+00:00",
+      "kind": "DRAFT_INTENT",
+      "run": "39729261771",
+      "epoch": 2,
+      "previous": "ce9f2e750770195cd249f24cfac426875615b80b22d5ed24df9620e6ced35e5e",
+      "hash": "ca37f241912a1f6e07c8eacb22741e31d975ffb8210f908d39fe9aa52cb923c5"
     }
   ],
   "handoff": {
@@ -198,16 +207,24 @@
         "retry_authority": "current direct task authorizes technical failure repair; no Meta retry"
       },
       "cloud-20261022-a2": {
-        "status": "FAILED_BEFORE_PLANNER_REPAIR_REQUIRED",
-        "run": "39728567688",
-        "at": "2026-10-22T05:33:54.918822+00:00",
+        "status": "DRAFT_INTENT",
+        "run": "39729261771",
+        "at": "2026-10-22T05:41:07.368844+00:00",
         "reason": "ValueError parsing cycle suffix before planner; official Gemma tag also changed",
         "rendered": false,
         "meta_requests": 0,
         "live_job": "skipped",
         "reviewed_run": "https://github.com/richx552277/romera-public-media/actions/runs/39728567688",
         "retry_authority": "current direct task authorizes technical failure repair; no Meta retry",
-        "resume_allowed": true
+        "resume_allowed": false,
+        "prior_runs": [
+          {
+            "run": "39728567688",
+            "status": "FAILED_BEFORE_PLANNER_REPAIR_REQUIRED",
+            "reason": "ValueError parsing cycle suffix before planner; official Gemma tag also changed",
+            "at": "2026-10-22T05:33:54.918822+00:00"
+          }
+        ]
       }
     }
   },
