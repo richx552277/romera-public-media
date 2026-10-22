@@ -6,7 +6,7 @@ on:
         description: rehearsal, draft, or gated live
         type: choice
         default: rehearsal
-        options: [rehearsal, draft, probe, live]
+        options: [rehearsal, draft, restore, probe, live]
   schedule:
     - cron: '13 0 * * 1,4'
     - cron: '7,37 * * * *'
@@ -16,6 +16,27 @@ concurrency:
   group: romera-account-17841449382124561-epoch2
   cancel-in-progress: false
 jobs:
+  restore:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'restore'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Quarantine restore dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python -m pip install PyNaCl==1.6.0
+      - name: Restore and decode real encrypted draft on a fresh cloud runner
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ROMERA_DRAFT_KEY: ${{ secrets.ROMERA_DRAFT_KEY }}
+        run: python cloud-auto/cloud_restore.py
+      - name: Restore evidence without raw draft disclosure
+        if: always()
+        run: cat cloud-auto/restore-result.json >> "$GITHUB_STEP_SUMMARY"
   monitor:
     if: github.event_name == 'schedule'
     runs-on: ubuntu-24.04
