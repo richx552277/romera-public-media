@@ -6,7 +6,7 @@
   "support": "ZF-DEV",
   "epoch": 2,
   "kill_switch": true,
-  "active_run": "39727328412",
+  "active_run": null,
   "jobs": [],
   "events": [
     {
@@ -17,6 +17,15 @@
       "epoch": 2,
       "previous": "0000000000000000000000000000000000000000000000000000000000000000",
       "hash": "e0c32ce34cc0f4c94b7f66efed1696aebdc0b7d214e73d692d5e7e3d57567c96"
+    },
+    {
+      "seq": 2,
+      "at": "2026-10-22T05:19:18.566657+00:00",
+      "kind": "LOCK_RELEASED",
+      "run": "39727328412",
+      "epoch": 2,
+      "previous": "e0c32ce34cc0f4c94b7f66efed1696aebdc0b7d214e73d692d5e7e3d57567c96",
+      "hash": "2e07c57732558b43e8478c930d09657bc5d3c28b0d6c83ad9541749f5d3b42b8"
     }
   ],
   "handoff": {
