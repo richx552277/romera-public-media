@@ -90,6 +90,15 @@
       "epoch": 2,
       "previous": "0000000000000000000000000000000000000000000000000000000000000000",
       "hash": "9bff3e2700245fe4ce7ea9bbe5517c8007b86e9546d3e7b7a836a7d3768139de"
+    },
+    {
+      "seq": 2,
+      "at": "2026-10-22T05:23:15.769040+00:00",
+      "kind": "DRAFT_INTENT",
+      "run": "39727415852",
+      "epoch": 2,
+      "previous": "9bff3e2700245fe4ce7ea9bbe5517c8007b86e9546d3e7b7a836a7d3768139de",
+      "hash": "55525d55f563a369c09e35c87cc74653995d1d6f64cc9e0bdbedc596eefc0c7e"
     }
   ],
   "handoff": {
@@ -109,7 +118,14 @@
   },
   "generation": {
     "release_enabled": false,
-    "reason": "SEMANTIC_QA_NOT_ACCEPTED"
+    "reason": "SEMANTIC_QA_NOT_ACCEPTED",
+    "cycles": {
+      "cloud-20261022": {
+        "status": "DRAFT_INTENT",
+        "run": "39727415852",
+        "at": "2026-10-22T05:23:15.769024+00:00"
+      }
+    }
   },
   "rights_music_native": "EXCLUDED/NOT_PASS"
 }
