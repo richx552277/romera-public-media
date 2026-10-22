@@ -1,0 +1,9 @@
+{
+  "assets": "frozen adopted romera-settings-v1.1",
+  "vendor_sha256": {
+    "workflow.py": "342790ed7bfb4424ef8ea845073b73fca762deaca874f733160f8f378e39b297",
+    "renderer.py": "ce2c8808839bb22988112f727aa1ce15dbdbc795713918a80075d5fb5fb322a4"
+  },
+  "baseline_commit": "14e403dbc79b256286cdcdd719344c5655be1954",
+  "asset_manifest_sha256": "7b0b468e0aa33aaae350f7460275a4baf4be9353fcda8798da0a901331e001b9"
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "project_id": "ZF-06",
+  "setting_version": "1.1",
+  "status": "adopted_for_production",
+  "effective_date": "2026-10-20",
+  "timezone": "Asia/Seoul",
+  "decision_basis": {
+    "direct_user_instruction": "의견 반영하여 설정 적용합니다.",
+    "advisory_document": "ZF-ADV-ROMERA-JP-002-REVIEW",
+    "advisory_type": "AI role-based written advisory; no native-speaker or independent-expert participation",
+    "selected_option": "A"
+  },
+  "identity": {
+    "core_name_ko": "로메라",
+    "display_name_ja": "ロメラ",
+    "display_name_latin": "ROMERA",
+    "account_handle": "life_romera",
+    "name_status": "adopted_display_name_pending_name_conflict_review",
+    "archetype_ko": "조용한 생활인",
+    "core_definition_ko": "조금 피곤하고 조금 서툴지만, 자기만의 속도로 하루를 살아가는 어른.",
+    "adult": true,
+    "visual_age_direction": "late 20s to mid 30s impression; exact age is not canon",
+    "exact_age": null,
+    "occupation": null,
+    "nationality": null,
+    "city": null,
+    "family_structure": null,
+    "relationship_status": null,
+    "nationality_presentation": "not_foregrounded",
+    "loneliness_is_permanent_identity": false
+  },
+  "personality": {
+    "strengths_ko": ["작은 즐거움을 발견한다", "자신을 심하게 몰아붙이지 않는다", "타인과의 연결을 소중히 여긴다"],
+    "vulnerabilities_ko": ["감정 표현이 서툴다", "생각이 많다", "작은 일에도 잠시 지칠 수 있다"],
+    "recurrent_actions_ko": ["잠깐 멈추기", "작게 한숨 쉬기", "폰을 들었다 내려놓기", "차 마시기", "작은 집안일 마무리하기"],
+    "default_expression": "neutral_or_soft_smile",
+    "growth_ko": "완벽해지기보다 자기 감정을 조금씩 이해한다.",
+    "avoid_ko": ["항상 지친 표정", "지나친 자기비하", "외로움을 성격 전체로 고정", "매번 교훈으로 끝내기", "차 한 잔이 모든 문제를 해결하는 연출"]
+  },
+  "audience": {
+    "primary_hypothesis_ko": "일본 25~39세 여성 직장인 및 1인 생활 경험자",
+    "secondary_hypothesis_ko": "성별에 관계없이 일상 유머와 작은 회복에 공감하는 성인",
+    "market_validated": false,
+    "brand_excludes_other_demographics": false
+  },
+  "visual": {
+    "style": "minimal everyday motiontoon; warm paper, restrained brown lines, expression-led",
+    "hair": {"shape": "fixed short bob and asymmetric fringe", "color": "#56463F"},
+    "hairpin": {"color": "#BB6856", "strokes": 2, "position": "character's left / viewer's right in frontal view", "mirror_without_correction": false},
+    "palette": {"ink": "#544842", "paper": "#F6F0E6", "mint": "#A8BCAF", "pants": "#727974", "skin": "#F4D9C1", "blush": "#DEA18E", "cream": "#F8F2E7"},
+    "face": "small eyes, simple mouth, restrained cheek blush",
+    "proportion": {"master_head_scale_relative_to_v1": 0.86, "longer_trouser_legs": true, "target_impression": "adult stylized character; visual recognition still requires audience validation"},
+    "wardrobe": {"default": "mint knit top, long muted gray-green trousers, plain cream shoes", "outside": "optional plain cardigan and unbranded bag", "sleep": "optional long-sleeve loungewear in the same palette"},
+    "expression_set": ["blank", "tired", "happy", "down", "shock", "closed_smile"],
+    "approved_master_asset": "assets/characters/front_blank.svg"
+  },
+  "japanese_voice": {
+    "base_register": "natural plain-form inner monologue",
+    "first_person": "omit by default; use 私 only when the contrast needs it",
+    "dialect": "none specified",
+    "direct_address": "avoid repeated lectures or commands to the viewer",
+    "humor": "light self-observation and small behavioral contrast",
+    "emotional_tone": "quiet realization; no forced motivational ending",
+    "official_name_suffix": "none; ちゃん is not a default suffix",
+    "narration": "none by default",
+    "native_speaker_verified": false
+  },
+  "production": {
+    "canvas": {"width": 1080, "height": 1920, "fps": 30},
+    "scene_count": 4,
+    "humor_duration_seconds": {"min": 12, "max": 15, "pilot_target": 14},
+    "emotional_duration_seconds": {"min": 18, "max": 25, "pilot_target": 22},
+    "separate_end_card": false,
+    "japanese_font": "assets/fonts/NotoSansCJKjp-Medium.otf",
+    "subtitle_lines_max": 2,
+    "line_break_policy": "semantic wrapping with Japanese kinsoku checks; do not use a fixed character count as acceptance proof",
+    "muted_story_comprehension_required": true,
+    "publishing_system_change": false
+  },
+  "quality": {
+    "minimum_editorial_score": 85,
+    "minimum_empathy_score_out_of_30": 24,
+    "major_character_errors_max": 0,
+    "japanese_naturalness_review": {"required_for_release": true, "independent_native_reviewers_recommended": 2, "proposed_mean_minimum_out_of_5": 4.0, "performed": false},
+    "major_cultural_misunderstandings_max": 0,
+    "actual_mobile_ui_check_required": true,
+    "continuous_listening_check_required": true,
+    "name_conflict_review_performed": false,
+    "adult_perception_test_performed": false
+  },
+  "asset_scope": {
+    "new_character_masters_and_setting_sheet": true,
+    "existing_korean_pilots_reencoded": false,
+    "japanese_pilots_produced": false,
+    "publishing_enabled_or_changed": false
+  }
+}

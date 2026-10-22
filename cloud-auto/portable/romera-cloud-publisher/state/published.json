@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "jobs": {
+    "romera-jp-01-v1": {
+      "phase": "published",
+      "mode": "live",
+      "origin": "manual-single",
+      "job_digest": "5344b1bc143f82d0c63254849ea1dccaababa1d6f4e53f60c2d9e7dfe49bb951",
+      "release_digest": "0580c1970b02330928387b11ca4908568b591cf97186cff9a0f8d571ddf3d8e0",
+      "manual_waiver_id": "ZF06-manual-jp01-20261020",
+      "manual_waiver_consumed": true,
+      "waiver_expires_at": "2026-10-20T08:01:19.805110+00:00",
+      "video_sha256": "2a932ae9b472ea49b4a5513a72c341717070c7c32098929a1c0d65f4d71c2c8f",
+      "human_review": "not performed; representative waiver",
+      "scheduled_at": "2026-10-20T07:31:19.805110+00:00",
+      "at": "2026-10-20T07:37:50.342586+00:00",
+      "container_id": "18059782067646071",
+      "media_id": "18077223965450154",
+      "published_at": "2026-10-20T07:40:16.325502+00:00",
+      "permalink": "https://www.instagram.com/reel/DetUKLlAmIe/"
+    }
+  }
+}

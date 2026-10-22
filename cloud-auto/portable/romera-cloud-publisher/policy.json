@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "policy_version": "ROMERA-B-GATED-20261021",
+  "account_id": "17841449382124561",
+  "username": "life_romera",
+  "language": "ja",
+  "live_enabled": false,
+  "permissions_verified": false,
+  "representative_approval": null,
+  "api_version": null,
+  "prepare_ahead_minutes": 60,
+  "maximum_lateness_hours": 24,
+  "maximum_posts_per_day": 2,
+  "cadence": {
+    "timezone": "Asia/Seoul",
+    "weekdays": [1, 3, 6],
+    "time": "21:00:00",
+    "maximum_posts_per_week": 3,
+    "one_content_per_slot": true
+  },
+  "approved_media_hosts": ["raw.githubusercontent.com"]
+}

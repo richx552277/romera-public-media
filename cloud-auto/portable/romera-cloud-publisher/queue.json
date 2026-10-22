@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "jobs": [
+    {
+      "id": "romera-jp-01-v1",
+      "title": "何もしないつもりだった",
+      "language": "ja",
+      "character_version": "1.1",
+      "account_id": "17841449382124561",
+      "username": "life_romera",
+      "status": "draft",
+      "scheduled_at": null,
+      "asset": {
+        "path": "assets/videos/jp-01.mp4",
+        "sha256": "2a932ae9b472ea49b4a5513a72c341717070c7c32098929a1c0d65f4d71c2c8f"
+      },
+      "caption": "何もしないつもりが、メニュー選びだけは真剣。 #ロメラ #日常あるある #ひとり時間",
+      "media_url": null,
+      "public_media_approved": false,
+      "token_valid_until": null,
+      "qa": {
+        "video_sha256": "2a932ae9b472ea49b4a5513a72c341717070c7c32098929a1c0d65f4d71c2c8f",
+        "technical_pass": true,
+        "checks": {
+          "1080x1920": true,
+          "h264_yuv420p": true,
+          "30fps": true,
+          "duration": true,
+          "frame_count": true,
+          "aac_48khz_stereo": true,
+          "full_decode": true,
+          "size_under_100mb": true,
+          "four_scenes": true,
+          "source_rights_record": true,
+          "no_black_frames_detected": true,
+          "true_peak_below_minus1dbtp": true
+        }
+      },
+      "review": {
+        "editorial_score": null,
+        "empathy_score": null,
+        "native_japanese": false,
+        "full_playback": false,
+        "mobile": false,
+        "rights": false,
+        "content_digest": null
+      }
+    },
+    {
+      "id": "romera-jp-02-v1",
+      "title": "５分だけのつもり",
+      "language": "ja",
+      "character_version": "1.1",
+      "account_id": "17841449382124561",
+      "username": "life_romera",
+      "status": "draft",
+      "scheduled_at": null,
+      "asset": {
+        "path": "assets/videos/jp-02.mp4",
+        "sha256": "aeaf399ff05384ee7b0c5dba8e1d4f66371d0749d9343042fe9e291daf974d3f"
+      },
+      "caption": "充電できたのは、スマホだけ。 #ロメラ #寝る前 #日常あるある",
+      "media_url": null,
+      "public_media_approved": false,
+      "token_valid_until": null,
+      "qa": {
+        "video_sha256": "aeaf399ff05384ee7b0c5dba8e1d4f66371d0749d9343042fe9e291daf974d3f",
+        "technical_pass": true,
+        "checks": {
+          "1080x1920": true,
+          "h264_yuv420p": true,
+          "30fps": true,
+          "duration": true,
+          "frame_count": true,
+          "aac_48khz_stereo": true,
+          "full_decode": true,
+          "size_under_100mb": true,
+          "four_scenes": true,
+          "source_rights_record": true,
+          "no_black_frames_detected": true,
+          "true_peak_below_minus1dbtp": true
+        }
+      },
+      "review": {
+        "editorial_score": null,
+        "empathy_score": null,
+        "native_japanese": false,
+        "full_playback": false,
+        "mobile": false,
+        "rights": false,
+        "content_digest": null
+      }
+    },
+    {
+      "id": "romera-jp-03-v1",
+      "title": "何もしてない日？",
+      "language": "ja",
+      "character_version": "1.1",
+      "account_id": "17841449382124561",
+      "username": "life_romera",
+      "status": "draft",
+      "scheduled_at": null,
+      "asset": {
+        "path": "assets/videos/jp-03.mp4",
+        "sha256": "b50d4386079937ecca51d721fda3118297739dab522117098a2481b9a23297a8"
+      },
+      "caption": "ごはんを食べて、カップを洗った。今日も、それなりに。 #ロメラ #日々のこと #ひとり時間",
+      "media_url": null,
+      "public_media_approved": false,
+      "token_valid_until": null,
+      "qa": {
+        "video_sha256": "b50d4386079937ecca51d721fda3118297739dab522117098a2481b9a23297a8",
+        "technical_pass": true,
+        "checks": {
+          "1080x1920": true,
+          "h264_yuv420p": true,
+          "30fps": true,
+          "duration": true,
+          "frame_count": true,
+          "aac_48khz_stereo": true,
+          "full_decode": true,
+          "size_under_100mb": true,
+          "four_scenes": true,
+          "source_rights_record": true,
+          "no_black_frames_detected": true,
+          "true_peak_below_minus1dbtp": true
+        }
+      },
+      "review": {
+        "editorial_score": null,
+        "empathy_score": null,
+        "native_japanese": false,
+        "full_playback": false,
+        "mobile": false,
+        "rights": false,
+        "content_digest": null
+      }
+    },
+    {
+      "id": "romera-jp-04-v1",
+      "title": "今夜の静けさ",
+      "language": "ja",
+      "character_version": "1.1",
+      "account_id": "17841449382124561",
+      "username": "life_romera",
+      "status": "draft",
+      "scheduled_at": null,
+      "asset": {
+        "path": "assets/videos/jp-04.mp4",
+        "sha256": "d0c9d4835d993f40feb152524d4468704a943ca466af66feea9184475e75f494"
+      },
+      "caption": "さみしい夜が、少しだけ心地よい夜になることもある。 #ロメラ #夜のひととき #日々のこと",
+      "media_url": null,
+      "public_media_approved": false,
+      "token_valid_until": null,
+      "qa": {
+        "video_sha256": "d0c9d4835d993f40feb152524d4468704a943ca466af66feea9184475e75f494",
+        "technical_pass": true,
+        "checks": {
+          "1080x1920": true,
+          "h264_yuv420p": true,
+          "30fps": true,
+          "duration": true,
+          "frame_count": true,
+          "aac_48khz_stereo": true,
+          "full_decode": true,
+          "size_under_100mb": true,
+          "four_scenes": true,
+          "source_rights_record": true,
+          "no_black_frames_detected": true,
+          "true_peak_below_minus1dbtp": true
+        }
+      },
+      "review": {
+        "editorial_score": null,
+        "empathy_score": null,
+        "native_japanese": false,
+        "full_playback": false,
+        "mobile": false,
+        "rights": false,
+        "content_digest": null
+      }
+    },
+    {
+      "id": "romera-jp-05-v1",
+      "title": "通知ひとつのつもりが",
+      "language": "ja",
+      "character_version": "1.1",
+      "account_id": "17841449382124561",
+      "username": "life_romera",
+      "status": "draft",
+      "scheduled_at": null,
+      "asset": {
+        "path": "assets/videos/jp-05.mp4",
+        "sha256": "c1390561695b60b1d1c58e6e20bf7c06ca3254e95e885c0346baa154746c7cb5"
+      },
+      "caption": "通知をひとつ見るだけ、のはずだった。 #ロメラ #スマホあるある #日常あるある",
+      "media_url": null,
+      "public_media_approved": false,
+      "token_valid_until": null,
+      "qa": {
+        "video_sha256": "c1390561695b60b1d1c58e6e20bf7c06ca3254e95e885c0346baa154746c7cb5",
+        "technical_pass": true,
+        "checks": {
+          "1080x1920": true,
+          "h264_yuv420p": true,
+          "30fps": true,
+          "duration": true,
+          "frame_count": true,
+          "aac_48khz_stereo": true,
+          "full_decode": true,
+          "size_under_100mb": true,
+          "four_scenes": true,
+          "source_rights_record": true,
+          "no_black_frames_detected": true,
+          "true_peak_below_minus1dbtp": true
+        }
+      },
+      "review": {
+        "editorial_score": null,
+        "empathy_score": null,
+        "native_japanese": false,
+        "full_playback": false,
+        "mobile": false,
+        "rights": false,
+        "content_digest": null
+      }
+    }
+  ]
+}

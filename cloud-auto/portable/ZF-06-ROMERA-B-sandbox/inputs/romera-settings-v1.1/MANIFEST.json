@@ -1,0 +1,201 @@
+{
+  "format": "relative-path-sha256-v1",
+  "scope": "all setting package files except manifest itself",
+  "files": [
+    {
+      "path": "assets/characters/front_blank.png",
+      "bytes": 58430,
+      "sha256": "9c86b430d8ad740084ff40946ed5edb08fefb36b250166402b68d90187b995df"
+    },
+    {
+      "path": "assets/characters/front_blank.svg",
+      "bytes": 3303,
+      "sha256": "7baf2823ea74ccfd5928beed5ad71f13ce07aff45781ba4a6dc5d08fd56371ab"
+    },
+    {
+      "path": "assets/characters/front_closed_smile.png",
+      "bytes": 59071,
+      "sha256": "b3468fbd9e348fa254ab473016214d28dd3f1be5ed0face1fcb83627dceaf742"
+    },
+    {
+      "path": "assets/characters/front_closed_smile.svg",
+      "bytes": 3280,
+      "sha256": "5087b39de9aa70c230f9648d393bdd3156b50b4c2ff652e8ff864042fc7e84c1"
+    },
+    {
+      "path": "assets/characters/front_down.png",
+      "bytes": 59067,
+      "sha256": "07d004a7a8e953080761a2249a53e6f504a5f389c28abd15edd95d604fcc53b6"
+    },
+    {
+      "path": "assets/characters/front_down.svg",
+      "bytes": 3346,
+      "sha256": "afe102be0a5ffcc33cdc0a7a8203a9de5907953dc1c07003c3b0c3ebf28b7ece"
+    },
+    {
+      "path": "assets/characters/front_happy.png",
+      "bytes": 59403,
+      "sha256": "c9dc4e82c9fd85a9ae1303951cfca6cedde49504475cb7daacd3ce70397b3d9b"
+    },
+    {
+      "path": "assets/characters/front_happy.svg",
+      "bytes": 3282,
+      "sha256": "c8861b1421452122055a4bf388ee0ef7a81caed8b3b50f121c89fb398d435cfc"
+    },
+    {
+      "path": "assets/characters/front_shock.png",
+      "bytes": 62375,
+      "sha256": "9ec492f55445c0835a134a2eb9d60c22e19b7cd7b7ce8771253bd0bfe5b4d864"
+    },
+    {
+      "path": "assets/characters/front_shock.svg",
+      "bytes": 3458,
+      "sha256": "6b4c820e13f3d2ee328186a5d3bd1ca657126cc2d513a19cc06053605cd9ee9d"
+    },
+    {
+      "path": "assets/characters/front_tired.png",
+      "bytes": 58509,
+      "sha256": "4d57963fc1f23b51c4be7a0df5e9affceefa0ca6c8dc6e8320e28ad4f5c3f71f"
+    },
+    {
+      "path": "assets/characters/front_tired.svg",
+      "bytes": 3445,
+      "sha256": "e581c8d0f857b6c0b7e7ce31a534a90ff8fd05065a564a33ba84ae865649f7cf"
+    },
+    {
+      "path": "assets/characters/pose_bag.png",
+      "bytes": 59794,
+      "sha256": "eee0777b80fd1c85f6c80ef9199bad430e271ea9809d56acfd64644a6105cf1e"
+    },
+    {
+      "path": "assets/characters/pose_bag.svg",
+      "bytes": 3570,
+      "sha256": "e399f4281a6fb63d92e59f9dd521b07645eb078ae0773ea2fd0d0acd553de861"
+    },
+    {
+      "path": "assets/characters/pose_phone.png",
+      "bytes": 61727,
+      "sha256": "2ee34febf55fc3441e9308dbd4c9945bf50351d006756126b1ebaeaaa445f240"
+    },
+    {
+      "path": "assets/characters/pose_phone.svg",
+      "bytes": 3949,
+      "sha256": "6882658dac2664bdd9e92300940698c48c026297542403eba6764964dcb4b62e"
+    },
+    {
+      "path": "assets/characters/pose_tea.png",
+      "bytes": 61889,
+      "sha256": "7c18176a63d4ae3cb4f27a2c4b3b724a60d1334f92422c168937c2699266ca87"
+    },
+    {
+      "path": "assets/characters/pose_tea.svg",
+      "bytes": 3809,
+      "sha256": "e4a4bd1641f3ab08ff1d5aa00e76931d8b03b37904b4728415c0b6274ffc48cd"
+    },
+    {
+      "path": "assets/fonts/NotoSansCJKjp-Medium.otf",
+      "bytes": 16554004,
+      "sha256": "dd523e580e3413c480b2d701bf64e534c20f8419e3cfb6a44c2bdcd8d2a6c052"
+    },
+    {
+      "path": "assets/fonts/NotoSansCJKkr-Medium.otf",
+      "bytes": 16519380,
+      "sha256": "15c12166634936c31307b91bd049d95b4ba30c248e8c389b5388f75ae8ba90d6"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    {
+      "path": "CHANGES.md",
+      "bytes": 1744,
+      "sha256": "2a16b9988fec773c703e7136e42c54ef4a99e24dda97f91b90f41213edd05a5c"
+    },
+    {
+      "path": "LANGUAGE-GUIDE.md",
+      "bytes": 2647,
+      "sha256": "942d1e21f165a1c02833de9039748dbad92436ae27e8b22101ed8a1b15af10ea"
+    },
+    {
+      "path": "production/build_assets.cjs",
+      "bytes": 3545,
+      "sha256": "b4a25357618441a49f71f46295b224e788a968c392503d43115ab5e56f7bf33f"
+    },
+    {
+      "path": "production/build_sheet.py",
+      "bytes": 4356,
+      "sha256": "5d74ce48d3b94fb6d9c3be1cd453014c94b95b16cfc337ffe36b5f3503b2880f"
+    },
+    {
+      "path": "production/character-core.cjs",
+      "bytes": 5289,
+      "sha256": "c0b658438db6b819e925171e0cc09f0c936a1eea55b9b4e7edb2aa6c0e48fd28"
+    },
+    {
+      "path": "production/finalize_settings.py",
+      "bytes": 4955,
+      "sha256": "436bedb4fe0a6c127c3532036bfb101c384ea37fde3ffefb2ef419e5c1511193"
+    },
+    {
+      "path": "production/prepare_core.py",
+      "bytes": 577,
+      "sha256": "e49787b47a9690a393e095b4ec59d4de478c7ec4f2e0f0954bf6d60f78fa3ba0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1614,
+      "sha256": "88a73e652639349d907cb953816f89989031e815a3d08c7426d6c2645ff3f825"
+    },
+    {
+      "path": "review/application-check.json",
+      "bytes": 4096,
+      "sha256": "a6c0a590701bed805b54c28f150bf0ee7e889f72d5b080663602588064d31776"
+    },
+    {
+      "path": "review/asset-build.json",
+      "bytes": 329,
+      "sha256": "2278847c74746b5cc753bfe4eea795021384cbf9a4726fd998f7586126c5110b"
+    },
+    {
+      "path": "review/character-sheet-v1.1.png",
+      "bytes": 313343,
+      "sha256": "0c05c0c2c083b7888d0e930d8677b4099c2ef46526c83f30fa612f2ccdaeb738"
+    },
+    {
+      "path": "review/jp-setting-mobile.png",
+      "bytes": 43461,
+      "sha256": "12df50374a9cf69cb513a87b463b054d0d6eb48a19eeb8c9788445ba70111a9a"
+    },
+    {
+      "path": "review/jp-setting-preview-base.png",
+      "bytes": 93730,
+      "sha256": "0a355f320e215494e1911a57dda63021495772ee282eaed163c091fe184b4876"
+    },
+    {
+      "path": "review/jp-setting-preview-base.svg",
+      "bytes": 4041,
+      "sha256": "86414f879e9400185a7a88716b5af7503944aa10bcc4e8e5bcce41735c880eea"
+    },
+    {
+      "path": "review/jp-setting-preview.png",
+      "bytes": 102308,
+      "sha256": "64c8b00b784cd693c5adc3ea08a7595e8e3dd4ffe46a12f01adbbe22170e9c5a"
+    },
+    {
+      "path": "review/proportion-comparison.png",
+      "bytes": 211110,
+      "sha256": "934ad115afc0ea3e694198cf089f91939d3317c6dd64af086eeecd92b0d08cff"
+    },
+    {
+      "path": "SETTING.md",
+      "bytes": 4542,
+      "sha256": "dbb39e6f462f5fe47cef2b2ea9715890d28223bb302e9f0f0f215ba90932fc98"
+    },
+    {
+      "path": "settings.json",
+      "bytes": 5359,
+      "sha256": "f04506ce4d3992326572171fb146fd670d89f163b4f0c3c7436a211f7c0a686a"
+    }
+  ]
+}

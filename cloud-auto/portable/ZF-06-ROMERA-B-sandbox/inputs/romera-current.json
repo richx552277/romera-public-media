@@ -1,0 +1,16 @@
+{
+  "project_id": "ZF-06",
+  "active_setting_version": "1.1",
+  "adopted_date": "2026-10-20",
+  "settings_path": "romera-settings-v1.1/settings.json",
+  "settings_sha256": "f04506ce4d3992326572171fb146fd670d89f163b4f0c3c7436a211f7c0a686a",
+  "setting_document": "romera-settings-v1.1/SETTING.md",
+  "character_sheet": "romera-settings-v1.1/review/character-sheet-v1.1.png",
+  "character_master": "romera-settings-v1.1/assets/characters/front_blank.svg",
+  "japanese_font": "romera-settings-v1.1/assets/fonts/NotoSansCJKjp-Medium.otf",
+  "japanese_voice_guide": "romera-settings-v1.1/LANGUAGE-GUIDE.md",
+  "archived_pilots_version": "1.0",
+  "archived_pilots_path": "romera-pilots",
+  "japanese_videos_produced": false,
+  "publishing_system_changed": false
+}

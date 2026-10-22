@@ -1,0 +1,37 @@
+[
+  {"id":"jp-01","title":"何もしないつもりだった","kind":"유머","duration":14,
+   "caption":"何もしないつもりが、メニュー選びだけは真剣。 #ロメラ #日常あるある #ひとり時間",
+   "scenes":[
+    {"seconds":3,"text":"帰ったら、\n何もしない。","asset":"pose_bag.png","visual":"帰宅してバッグを持ったまま、ひと息。"},
+    {"seconds":3,"text":"バッグを置いて、\nそのまま停止。","asset":"front_tired.png","visual":"肩が少し下がる。"},
+    {"seconds":3,"text":"ごはん、\n誰か作ってくれないかな。","asset":"front_blank.png","visual":"食事のことを考えて、少し間が空く。"},
+    {"seconds":5,"text":"注文するときだけ、\n指がよく動く。","asset":"pose_phone.png","visual":"スマホを手に取ると、小さく笑う。"}]},
+  {"id":"jp-02","title":"５分だけのつもり","kind":"유머","duration":14,
+   "caption":"充電できたのは、スマホだけ。 #ロメラ #寝る前 #日常あるある",
+   "scenes":[
+    {"seconds":3,"text":"寝る前に、\n５分だけ。","asset":"pose_phone.png","clock":"23:55","visual":"余裕のある表情でスマホを見る。"},
+    {"seconds":3.5,"text":"あとひとつ。\nこれで最後。","asset":"pose_phone.png","clock":"00:24","visual":"同じ姿勢で画面に見入る。"},
+    {"seconds":3,"text":"あれ、\nもう１時？","asset":"front_shock.png","clock":"01:12","visual":"時計を見て、一瞬止まる。"},
+    {"seconds":4.5,"text":"スマホは満タン。\nこっちは電池切れ。","asset":"front_tired.png","clock":"01:12","visual":"肩が落ちて、疲れた表情になる。"}]},
+  {"id":"jp-03","title":"何もしてない日？","kind":"감성","duration":22,
+   "caption":"ごはんを食べて、カップを洗った。今日も、それなりに。 #ロメラ #日々のこと #ひとり時間",
+   "scenes":[
+    {"seconds":5,"text":"今日、何した？\nって聞かれて、","asset":"front_down.png","visual":"考え込んで、少し目線が下がる。"},
+    {"seconds":5,"text":"うまく答えられない。\nもう、一日が終わる。","asset":"front_tired.png","visual":"夕方の静かな間。"},
+    {"seconds":5.5,"text":"でも、ごはんは食べた。\nカップも洗った。","asset":"front_happy.png","visual":"小さな用事を思い出して、表情が和らぐ。"},
+    {"seconds":6.5,"text":"何もしてないわけじゃ、\nなかったな。","asset":"front_closed_smile.png","visual":"小さくうなずいて、ほっとする。"}]},
+  {"id":"jp-04","title":"今夜の静けさ","kind":"감성","duration":22,
+   "caption":"さみしい夜が、少しだけ心地よい夜になることもある。 #ロメラ #夜のひととき #日々のこと",
+   "scenes":[
+    {"seconds":5,"text":"ひとりの夕飯が、\n少しさみしかった。","asset":"front_down.png","visual":"ひとりで過ごす夜、視線が少し下がる。"},
+    {"seconds":5,"text":"誰かに連絡しようか。\nスマホを手に取る。","asset":"pose_phone.png","visual":"スマホを見ながら、少しためらう。"},
+    {"seconds":6,"text":"その前に、\n好きなお茶をいれた。","asset":"pose_tea.png","visual":"カップを両手で包み、ひと息。"},
+    {"seconds":6,"text":"今夜は、この静けさが\nちょっと心地いい。","asset":"front_closed_smile.png","visual":"肩の力が抜けて、小さく笑う。"}]},
+  {"id":"jp-05","title":"通知ひとつのつもりが","kind":"유머","duration":14,
+   "caption":"通知をひとつ見るだけ、のはずだった。 #ロメラ #スマホあるある #日常あるある",
+   "scenes":[
+    {"seconds":3,"text":"通知をひとつ、\n見るだけ。","asset":"front_blank.png","visual":"スマホを確認しようとする。"},
+    {"seconds":3.5,"text":"これだけ見たら、\n本当に最後。","asset":"pose_phone.png","visual":"スマホを見ながら、小さく笑う。"},
+    {"seconds":3,"text":"あれ、\nもう夕方？","asset":"front_shock.png","visual":"時間に気づき、一瞬止まる。"},
+    {"seconds":4.5,"text":"見たのは通知。\nなくなったのは時間。","asset":"front_tired.png","visual":"静かに肩を落とす。"}]}
+]

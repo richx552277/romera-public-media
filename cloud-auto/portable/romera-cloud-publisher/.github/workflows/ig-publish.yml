@@ -1,0 +1,66 @@
+name: ROMERA ig-publish
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Execution mode (live requires separate activation)
+        type: choice
+        default: mock
+        options: [mock, live]
+  schedule:
+    - cron: '2,17,32,47 * * * *'
+      timezone: Asia/Seoul
+permissions:
+  contents: write
+concurrency:
+  group: romera-publishing-queue
+  cancel-in-progress: false
+jobs:
+  mock:
+    if: ${{ (github.event_name == 'workflow_dispatch' || vars.ROMERA_SCHEDULE_ENABLED == 'true') && (inputs.mode || vars.ROMERA_MODE || 'mock') != 'live' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Test queue and safety contracts
+        run: python -m unittest discover -s tests -v
+      - name: Verify isolated source rollback and ledger preservation
+        run: python tools/safety_audit.py
+      - name: Process mock queue and persist mock receipts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python cloud_queue.py tick --mode mock --github --rehearsal --steps 4
+      - name: Write mock run summary
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python cloud_queue.py report --mode mock --github
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: romera-mock-evidence-${{ github.run_id }}
+          path: runtime/
+          retention-days: 14
+  live:
+    if: ${{ (github.event_name == 'workflow_dispatch' || vars.ROMERA_SCHEDULE_ENABLED == 'true') && (inputs.mode || vars.ROMERA_MODE || 'mock') == 'live' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    environment: romera-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Process authorized due entries
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          ROMERA_PUBLISH_ENABLED: ${{ vars.ROMERA_PUBLISH_ENABLED }}
+        run: python cloud_queue.py tick --mode live --github
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: romera-live-evidence-${{ github.run_id }}
+          path: runtime/
+          retention-days: 14

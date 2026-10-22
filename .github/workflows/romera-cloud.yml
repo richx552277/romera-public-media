@@ -1,0 +1,78 @@
+name: ROMERA cloud autonomy
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: rehearsal, draft, or gated live
+        type: choice
+        default: rehearsal
+        options: [rehearsal, draft, live]
+  schedule:
+    - cron: '13 0 * * 1,4'
+    - cron: '7,37 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: romera-account-17841449382124561-epoch2
+  cancel-in-progress: false
+jobs:
+  rehearsal:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'rehearsal'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Cloud safety and crash rehearsal without Meta credentials
+        run: python cloud-auto/cloud_auto.py rehearsal --output cloud-auto/rehearsal-result.json
+      - name: Evidence in run summary without billed artifact storage
+        if: always()
+        run: cat cloud-auto/rehearsal-result.json >> "$GITHUB_STEP_SUMMARY"
+  draft:
+    if: (github.event_name == 'workflow_dispatch' && inputs.mode == 'draft') || (github.event.schedule == '13 0 * * 1,4' && vars.ROMERA_CLOUD_DRAFT_ENABLED == 'true')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Portable production dependencies
+        run: |
+          python -m pip install pillow==11.3.0 numpy==2.2.6
+          command -v ffmpeg
+          command -v ffprobe
+      - name: Official local model runtime on cloud CPU
+        run: |
+          curl -fsSL https://ollama.com/install.sh -o /tmp/romera-ollama-install.sh
+          sh /tmp/romera-ollama-install.sh
+          ollama pull gemma3:4b
+          ollama pull qwen2.5:7b
+      - name: Generate, review, render, persist draft under durable lock
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python cloud-auto/cloud_draft.py
+      - name: Draft outcome
+        if: always()
+        run: |
+          if test -f cloud-auto/portable/romera-cloud-publisher/cloud-state/cloud-result.json; then cat cloud-auto/portable/romera-cloud-publisher/cloud-state/cloud-result.json >> "$GITHUB_STEP_SUMMARY"; fi
+          if test -f cloud-auto/draft-failure.json; then cat cloud-auto/draft-failure.json >> "$GITHUB_STEP_SUMMARY"; fi
+  live:
+    if: ((github.event_name == 'workflow_dispatch' && inputs.mode == 'live') || github.event.schedule == '7,37 * * * *') && vars.ROMERA_LIVE_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Account-scoped durable publisher
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          ROMERA_LIVE_ENABLED: ${{ vars.ROMERA_LIVE_ENABLED }}
+        run: python cloud-auto/cloud_auto.py live --output cloud-auto/live-result.json
+      - name: Publication evidence
+        if: always()
+        run: cat cloud-auto/live-result.json >> "$GITHUB_STEP_SUMMARY"

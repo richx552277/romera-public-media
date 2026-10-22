@@ -1,0 +1,99 @@
+{
+  "files": [
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/romera.py",
+      "sha256": "c9bbe383a1660ec4d396dcb1311d45d3e466b0ae80e135356b4bfd905204d185"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/policy.json",
+      "sha256": "cc7770a5c77ce424d1fa5a446cd17495ee508faf77793ae014d8bbf712b70884"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/queue.json",
+      "sha256": "aec653ea7455f11128737412263d21b6dc8bcb9e0bf7b77c6f5854f815fa4415"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/state/published.json",
+      "sha256": "291453ccef8f03afb7b090336be9cf3aa19237424689c91220b2e468d7de2ff3"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/state/mock-published.json",
+      "sha256": "b704fb2fad9350d9c97d06acaafcbb978bf3676ed2ece57e86741b3ee10d5b4f"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/.github/workflows/ig-publish.yml",
+      "sha256": "25e22f6d5233c055db6832ed00a5f33ade00d5599e289eb7c31e15329937c5ba"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/automation/engine.py",
+      "sha256": "d5b22867d844ed294bad8a425fd749ab584b937c1599d18290c61053180f2286"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/automation/stable_engine.py",
+      "sha256": "2b8f552c24870b5fb1f7064714c6ca4f787252107ba174aa26b0f525a18c979f"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/automation/video_audit.py",
+      "sha256": "acb2958abe34b9417f14b0c07bbed482f456a9ea7f71d4dc3c0f5aa9e56000f7"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/automation/sources.json",
+      "sha256": "f44646e8305aade973a05a720b5402f93dc6647ecc16e184d58b543e11bbcd59"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/automation/vendor/workflow.py",
+      "sha256": "342790ed7bfb4424ef8ea845073b73fca762deaca874f733160f8f378e39b297"
+    },
+    {
+      "path": "cloud-auto/portable/romera-cloud-publisher/automation/vendor/renderer.py",
+      "sha256": "ce2c8808839bb22988112f727aa1ce15dbdbc795713918a80075d5fb5fb322a4"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-current.json",
+      "sha256": "c93eedc648f1fca77b3fed861d1f9611b4fa571dc848d7179b145c88a11afe03"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/jp-plans.json",
+      "sha256": "e73a0cb3f951c6b9cc55af0c8809d19d7f1fc225757274dcdd8ae2d062a4e4fe"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/RIGHTS-JP.md",
+      "sha256": "aa273b61c914550443de7ae3a1e247522e3dcc7ebbac80f320c021d053ef0b4f"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/settings.json",
+      "sha256": "f04506ce4d3992326572171fb146fd670d89f163b4f0c3c7436a211f7c0a686a"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/MANIFEST.json",
+      "sha256": "7b0b468e0aa33aaae350f7460275a4baf4be9353fcda8798da0a901331e001b9"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/assets/fonts/NotoSansCJKjp-Medium.otf",
+      "sha256": "dd523e580e3413c480b2d701bf64e534c20f8419e3cfb6a44c2bdcd8d2a6c052"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/assets/fonts/OFL.txt",
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/assets/characters/front_blank.png",
+      "sha256": "9c86b430d8ad740084ff40946ed5edb08fefb36b250166402b68d90187b995df"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/assets/characters/front_happy.png",
+      "sha256": "c9dc4e82c9fd85a9ae1303951cfca6cedde49504475cb7daacd3ce70397b3d9b"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/assets/characters/front_shock.png",
+      "sha256": "9ec492f55445c0835a134a2eb9d60c22e19b7cd7b7ce8771253bd0bfe5b4d864"
+    },
+    {
+      "path": "cloud-auto/portable/ZF-06-ROMERA-B-sandbox/inputs/romera-settings-v1.1/assets/characters/front_closed_smile.png",
+      "sha256": "b3468fbd9e348fa254ab473016214d28dd3f1be5ed0face1fcb83627dceaf742"
+    }
+  ],
+  "character": "1.1",
+  "source": "Existing approved local packages, exact byte copies",
+  "source_not_modified": true
+}
