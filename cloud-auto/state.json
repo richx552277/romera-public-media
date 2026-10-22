@@ -170,6 +170,15 @@
       "epoch": 2,
       "previous": "ce9f2e750770195cd249f24cfac426875615b80b22d5ed24df9620e6ced35e5e",
       "hash": "ca37f241912a1f6e07c8eacb22741e31d975ffb8210f908d39fe9aa52cb923c5"
+    },
+    {
+      "seq": 10,
+      "at": "2026-10-22T05:46:03.349486+00:00",
+      "kind": "DRAFT_RECORDED",
+      "run": "39729261771",
+      "epoch": 2,
+      "previous": "ca37f241912a1f6e07c8eacb22741e31d975ffb8210f908d39fe9aa52cb923c5",
+      "hash": "f5648dcb7ee259db224170d891c54f62c2b423b25b8567699743d15bf76caff6"
     }
   ],
   "handoff": {
@@ -207,7 +216,7 @@
         "retry_authority": "current direct task authorizes technical failure repair; no Meta retry"
       },
       "cloud-20261022-a2": {
-        "status": "DRAFT_INTENT",
+        "status": "HOLD_AUTO_QA",
         "run": "39729261771",
         "at": "2026-10-22T05:41:07.368844+00:00",
         "reason": "ValueError parsing cycle suffix before planner; official Gemma tag also changed",
@@ -223,6 +232,59 @@
             "status": "FAILED_BEFORE_PLANNER_REPAIR_REQUIRED",
             "reason": "ValueError parsing cycle suffix before planner; official Gemma tag also changed",
             "at": "2026-10-22T05:33:54.918822+00:00"
+          }
+        ],
+        "video_sha256": "8bdf5082d71b3317c4a02565c4b8fb89d8fdaee6a79694236399590281c2012b",
+        "automated_quality_pass": false,
+        "publication": "HOLD",
+        "persisted": true,
+        "archive_path": "cloud-auto/private-drafts/cloud-20261022-a2-39729261771.nacl",
+        "archive_sha256": "9f7d262dba3545917370e2763a5a60cf45e079b7a44e2067355dd6de9d398fb8",
+        "encrypted": true,
+        "storage_readback": true,
+        "encryption_roundtrip": true,
+        "provider_diagnostics": [
+          {
+            "path": "cycles/cloud-20261022-a2/visual-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 47
+          },
+          {
+            "path": "cycles/cloud-20261022-a2/attempt-1/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 79
+          },
+          {
+            "path": "cycles/cloud-20261022-a2/attempt-1/planner-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 69
+          },
+          {
+            "path": "calibration/qwen2.5-positive/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 72
+          },
+          {
+            "path": "calibration/gemma3-unshown-props/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 60
+          },
+          {
+            "path": "calibration/gemma3-positive/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 55
+          },
+          {
+            "path": "calibration/qwen2.5-unshown-props/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 69
           }
         ]
       }
