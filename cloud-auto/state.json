@@ -6,7 +6,7 @@
   "support": "ZF-DEV",
   "epoch": 2,
   "kill_switch": true,
-  "active_run": "39728567688",
+  "active_run": null,
   "jobs": [
     {
       "id": "romera-001",
@@ -143,6 +143,15 @@
       "epoch": 2,
       "previous": "d6cb1fa225b3b51f5a55b962f59c7594dea5da7e1915ba8cded78fbbbad61f94",
       "hash": "d1512262621f8c7ea3afcaa2464b9711d6a0431ba17dd8f3bd80ab7b809ef757"
+    },
+    {
+      "seq": 7,
+      "at": "2026-10-22T05:38:57.826371+00:00",
+      "kind": "RECONCILED_DRAFT_FAILURE_NO_META",
+      "run": "39728567688",
+      "epoch": 2,
+      "previous": "d1512262621f8c7ea3afcaa2464b9711d6a0431ba17dd8f3bd80ab7b809ef757",
+      "hash": "dc318904ab0ee27f11df4acbc371f014b274495802de787ffe83bd6dca998561"
     }
   ],
   "handoff": {
@@ -180,9 +189,16 @@
         "retry_authority": "current direct task authorizes technical failure repair; no Meta retry"
       },
       "cloud-20261022-a2": {
-        "status": "DRAFT_INTENT",
+        "status": "FAILED_BEFORE_PLANNER_REPAIR_REQUIRED",
         "run": "39728567688",
-        "at": "2026-10-22T05:33:54.918822+00:00"
+        "at": "2026-10-22T05:33:54.918822+00:00",
+        "reason": "ValueError parsing cycle suffix before planner; official Gemma tag also changed",
+        "rendered": false,
+        "meta_requests": 0,
+        "live_job": "skipped",
+        "reviewed_run": "https://github.com/richx552277/romera-public-media/actions/runs/39728567688",
+        "retry_authority": "current direct task authorizes technical failure repair; no Meta retry",
+        "resume_allowed": true
       }
     }
   },
