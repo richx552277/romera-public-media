@@ -20,15 +20,23 @@ jobs:
     if: github.event_name == 'workflow_dispatch' && inputs.mode == 'rehearsal'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
       - name: Cloud safety and crash rehearsal without Meta credentials
         run: python cloud-auto/cloud_auto.py rehearsal --output cloud-auto/rehearsal-result.json
+      - name: Real durable cloud backend and conflict test on isolated test ledger
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python cloud-auto/cloud_auto.py backend --output cloud-auto/backend-result.json
       - name: Evidence in run summary without billed artifact storage
         if: always()
-        run: cat cloud-auto/rehearsal-result.json >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          cat cloud-auto/rehearsal-result.json >> "$GITHUB_STEP_SUMMARY"
+          if test -f cloud-auto/backend-result.json; then cat cloud-auto/backend-result.json >> "$GITHUB_STEP_SUMMARY"; fi
   draft:
     if: (github.event_name == 'workflow_dispatch' && inputs.mode == 'draft') || (github.event.schedule == '13 0 * * 1,4' && vars.ROMERA_CLOUD_DRAFT_ENABLED == 'true')
     runs-on: ubuntu-24.04

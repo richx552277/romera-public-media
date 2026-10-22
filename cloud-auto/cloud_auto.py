@@ -5,6 +5,7 @@ The cloud rehearsal never receives a Meta credential and cannot publish.
 """
 import argparse, base64, copy, datetime as dt, hashlib, json, os, re
 import subprocess, sys, tempfile, urllib.request as ur, urllib.error as ue
+from urllib.parse import urlencode
 from pathlib import Path
 
 ACCOUNT = '17841449382124561'
@@ -58,7 +59,7 @@ class MemoryCAS:
 
 class GithubCAS:
     def __init__(self, repo, path, token):
-        if repo!='richx552277/romera-public-media' or path!='cloud-auto/state.json': raise Hold('LEDGER_LOCATION_REFUSED')
+        if repo!='richx552277/romera-public-media' or path not in ('cloud-auto/state.json','cloud-auto/test-state.json'): raise Hold('LEDGER_LOCATION_REFUSED')
         self.url=f'https://api.github.com/repos/{repo}/contents/{path}'
         self.token=token
     def load(self):
@@ -153,6 +154,19 @@ def safe_meta_probe(token):
 
 class Meta:
     def __init__(self,token): self.token=token
+    def duplicate(self,job):
+        after=None
+        for _ in range(10):
+            query={'fields':'id,caption,media_type','limit':100}
+            if after:query['after']=after
+            data=request('GET',f'https://graph.instagram.com/v23.0/{ACCOUNT}/media?'+urlencode(query),self.token)
+            for media in data.get('data',[]):
+                if media.get('media_type')=='VIDEO' and (media.get('caption') or '').strip()==job['caption'].strip():return True
+            paging=data.get('paging',{})
+            if not paging.get('next'):return False
+            after=paging.get('cursors',{}).get('after')
+            if not isinstance(after,str) or len(after)>4096:raise Hold('MEDIA_PAGING_INVALID')
+        raise Hold('MEDIA_INVENTORY_INCOMPLETE')
     def create(self,job):
         return request('POST',f'https://graph.instagram.com/v23.0/{ACCOUNT}/media',self.token,
                        {'media_type':'REELS','video_url':job['delivery_url'],'caption':job['caption'], 'thumb_offset':job['cover_ms'],'share_to_feed':True})['id']
@@ -190,6 +204,8 @@ def tick(journal,meta,clock=None,delivery=verify_delivery):
                 journal.update(old['id'],'MISSED_HOLD');continue
             job=journal.check(old['id']); delivery(job)
             if old['status']=='READY':
+                if meta.duplicate(job):
+                    journal.update(job['id'],'RECONCILE_HOLD',reason='REMOTE_CAPTION_MATCH');raise Hold('REMOTE_DUPLICATE_RECONCILE')
                 journal.update(job['id'],'CREATE_INTENT',request_digest=digest({'video':job['video_sha256'],'caption':job['caption'],'cover':job['cover_ms']}))
                 # Kill switch/owner/epoch re-read after durable intent, before side effect.
                 journal.check(job['id'])
@@ -213,7 +229,7 @@ def tick(journal,meta,clock=None,delivery=verify_delivery):
             journal.update(job['id'],'PUBLISHED_PENDING_READBACK',media_id=str(mid))
             result=meta.readback(mid)
             if str(result.get('id'))!=str(mid) or result.get('username')!=USER or result.get('caption')!=job['caption'] or not re.fullmatch(r'https://www.instagram.com/(?:reel|p)/[A-Za-z0-9_-]+/?',result.get('permalink','')):raise Hold('READBACK_MISMATCH')
-            journal.update(job['id'],'PUBLISHED',permalink=result['permalink'])
+            journal.update(job['id'],'PUBLISHED',permalink=result['permalink'],published_at=now())
         journal.release()
     except Exception:
         # A permanent owner lock intentionally survives any failure. Never TTL takeover.
@@ -227,12 +243,37 @@ def rehearsal(output):
                   limitation='Software cloud execution with mock Meta; not a physical PC shutdown or real publication test')
     save(output,result);return result
 
+def backend_rehearsal():
+    """Real GitHub durable commits and conflict/exclusion test; isolated test ledger."""
+    b=GithubCAS('richx552277/romera-public-media','cloud-auto/test-state.json',os.environ['GITHUB_TOKEN'])
+    run=os.environ['GITHUB_RUN_ID'];j=Journal(b,run)
+    before,revision=b.load();j.acquire();checks=[]
+    try:
+        try:b.put(before,revision)
+        except Hold:checks.append('stale_revision_write_rejected')
+        else:raise Hold('CAS_CONFLICT_NOT_REJECTED')
+        try:Journal(b,'competing-'+run).acquire()
+        except Hold as ex:
+            if str(ex)!='ACTIVE_OR_INTERRUPTED_RUN_RECONCILE':raise
+            checks.append('other_cloud_runner_excluded')
+        else:raise Hold('LOCK_NOT_ENFORCED')
+        live,_=b.load();validate_state(live)
+        if live['active_run']!=run:raise Hold('DURABLE_LOCK_READBACK')
+        checks.append('durable_intent_event_chain_readback')
+        j.release();final,_=b.load();validate_state(final)
+        if final['active_run'] is not None:raise Hold('RELEASE_READBACK')
+        checks.append('durable_release_readback')
+        return {'status':'PASS','backend':'GitHub Contents API CAS real cloud writes','tests':checks,
+                'meta_posts':0,'production_ledger_modified':False,'pc_dependency':False,'at':now(),'run':run}
+    except Exception:raise
+
 def main():
-    p=argparse.ArgumentParser();p.add_argument('mode',choices=['probe','rehearsal','live']);p.add_argument('--output',default='evidence/result.json')
+    p=argparse.ArgumentParser();p.add_argument('mode',choices=['probe','rehearsal','backend','live']);p.add_argument('--output',default='evidence/result.json')
     a=p.parse_args()
     try:
         if a.mode=='probe':result=safe_meta_probe(os.environ.get('IG_TOKEN_ROMANCE_JP',''))
         elif a.mode=='rehearsal':result=rehearsal(a.output)
+        elif a.mode=='backend':result=backend_rehearsal()
         else:
             if os.environ.get('GITHUB_REPOSITORY')!='richx552277/romera-public-media':raise Hold('CLOUD_REPOSITORY_REFUSED')
             if os.environ.get('ROMERA_LIVE_ENABLED')!='true':raise Hold('DEPLOYMENT_LIVE_DISABLED')

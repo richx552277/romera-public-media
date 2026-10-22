@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "task": "ZF-OPS-ROMERA-CLOUD-AUTO-001",
+  "account_id": "17841449382124561",
+  "owner": "GPT/ZF-OPS",
+  "support": "ZF-DEV",
+  "epoch": 2,
+  "kill_switch": true,
+  "active_run": null,
+  "jobs": [],
+  "events": [],
+  "handoff": {
+    "status": "HOLD",
+    "previous_host": "Windows PC",
+    "new_host": "GitHub standard ubuntu runner",
+    "old_ledger_preserved": true,
+    "old_writers_excluded": false,
+    "inflight_reconciled": false
+  },
+  "credential": {
+    "status": "UNVERIFIED",
+    "app_id": null,
+    "granted_scopes": [],
+    "expires_at": null,
+    "observed_at": null
+  },
+  "generation": {
+    "release_enabled": false,
+    "reason": "SEMANTIC_QA_NOT_ACCEPTED"
+  },
+  "rights_music_native": "EXCLUDED/NOT_PASS"
+}

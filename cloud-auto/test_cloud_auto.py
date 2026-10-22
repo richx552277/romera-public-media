@@ -13,6 +13,7 @@ def fixture():
 
 class Fake:
     def __init__(self,journal,fail=None):self.journal=journal;self.calls=[];self.fail=fail
+    def duplicate(self,job):return self.fail=='duplicate'
     def create(self,job):
         self.calls.append('create')
         assert self.journal.backend.load()[0]['jobs'][0]['status']=='CREATE_INTENT'
@@ -71,6 +72,10 @@ class Safety(unittest.TestCase):
         def fail(x):raise c.Hold('DELIVERY_HASH')
         with self.assertRaisesRegex(c.Hold,'DELIVERY_HASH'):c.tick(j,m,delivery=fail)
         self.assertEqual(m.calls,[])
+    def test_remote_duplicate_no_post(self):
+        b,j,m=self.setup_j();m.fail='duplicate'
+        with self.assertRaisesRegex(c.Hold,'REMOTE_DUPLICATE'):c.tick(j,m,delivery=lambda x:None)
+        self.assertEqual(m.calls,[]);self.assertEqual(b.v['jobs'][0]['status'],'RECONCILE_HOLD')
     def test_payload_change(self):
         v=fixture();v['jobs'][0]['caption']='changed';b,j,m=self.setup_j(v)
         with self.assertRaisesRegex(c.Hold,'PAYLOAD'):c.tick(j,m,delivery=lambda x:None)
