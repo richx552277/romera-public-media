@@ -40,15 +40,18 @@ def run():
     value,_=backend.load()
     base='cloud-'+dt.datetime.now(c.KST).strftime('%Y%m%d')
     existing=[x for x in value['generation'].get('cycles',{}) if x==base or x.startswith(base+'-a')]
-    if len(existing)>=2:raise c.Hold('DAILY_DRAFT_ATTEMPT_LIMIT')
-    cycle=base if not existing else base+'-a2'
+    resumable=[name for name in existing if value['generation']['cycles'][name].get('resume_allowed') is True]
+    if len(existing)>=2 and not resumable:raise c.Hold('DAILY_DRAFT_ATTEMPT_LIMIT')
+    cycle=resumable[0] if resumable else (base if not existing else base+'-a2')
     from nacl.secret import SecretBox
     key=base64.b64decode(os.environ.get('ROMERA_DRAFT_KEY',''),validate=True)
     if len(key)!=SecretBox.KEY_SIZE:raise c.Hold('DRAFT_ENCRYPTION_KEY_REQUIRED')
     box=SecretBox(key);key=None
     value=journal.acquire()
     def intent(v):
-        journal.owned(v);v['generation'].setdefault('cycles',{})[cycle]={'status':'DRAFT_INTENT','run':journal.run,'at':c.now()}
+        journal.owned(v);record=v['generation'].setdefault('cycles',{}).setdefault(cycle,{})
+        if record.get('run'):record.setdefault('prior_runs',[]).append({k:record.get(k) for k in ('run','status','reason','at')})
+        record.update(status='DRAFT_INTENT',run=journal.run,at=c.now(),resume_allowed=False)
     journal.change('DRAFT_INTENT',intent)
     # CAS lock/intents are Git commits. Fast-forward the checkout before outputs.
     sync=subprocess.run(['git','pull','--ff-only','origin','main'],cwd=ROOT.parent,
@@ -57,6 +60,9 @@ def run():
     sys.path.insert(0,str(ROOT/'portable/romera-cloud-publisher/automation'))
     import engine as e
     import stable_engine as s
+    # Official registry bytes independently verified. New cloud model calibration
+    # is not inherited from the old PC model digest.
+    e.MODELS={**e.MODELS,'gemma3:4b':'68ceab7e468a31c988b44d5a4984a0e21f58c4f7158c6ce29c1804babac38df7'}
     original=e.renderer
     def portable_renderer():
         w=original();w.FFMPEG=Path(shutil.which('ffmpeg'));w.FFPROBE=Path(shutil.which('ffprobe'));return w
@@ -72,8 +78,11 @@ def run():
         'observed_digest':next((m.get('digest') for m in inventory if m.get('name')==name),None)} for name,expected in e.MODELS.items()]
     print(json.dumps({'cloud_model_inventory':diagnostics}),flush=True)
     # Calibration and full generation are real model calls on the cloud CPU.
-    if not all(s.calibrated(state,model) for model in e.MODELS):calibration=s.calibration(state)
-    result=s.run(state,cycle,20261022+int(cycle[-4:]),'gemma3:4b')
+    policy_hash=c.digest(e.MODELS)
+    calibration=e.read(state/'calibration.json') if (state/'calibration.json').exists() else {}
+    if calibration.get('cloud_model_policy_sha256')!=policy_hash or not all(s.calibrated(state,model) for model in e.MODELS):
+        calibration=s.calibration(state);calibration['cloud_model_policy_sha256']=policy_hash;e.write(state/'calibration.json',calibration)
+    result=s.run(state,cycle,20261022+int(dt.datetime.now(c.KST).strftime('%m%d')),'gemma3:4b')
     result.update(host='GitHub standard ubuntu runner',pc_dependency=False,
                   rights_music_native='EXCLUDED/NOT_PASS',cloud_release_admitted=False)
     result['model_inventory']=diagnostics
@@ -94,8 +103,11 @@ def run():
         p=subprocess.run(args,cwd=repo,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         if p.returncode:raise c.Hold('DRAFT_PERSIST_FAILED_LOCK_RETAINED')
     rel=archive.relative_to(ROOT.parent).as_posix()
-    remote=c.request('GET','https://api.github.com/repos/richx552277/romera-public-media/contents/'+rel,os.environ['GITHUB_TOKEN'])
-    if __import__('hashlib').sha256(base64.b64decode(remote['content'])).hexdigest()!=c.sha(archive):raise c.Hold('DRAFT_STORAGE_READBACK')
+    commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()
+    if not re.fullmatch('[0-9a-f]{40}',commit):raise c.Hold('DRAFT_COMMIT_INVALID')
+    uri='https://raw.githubusercontent.com/richx552277/romera-public-media/'+commit+'/'+rel
+    with c.ur.build_opener(c.NoRedirect()).open(uri,timeout=45) as response:remote=response.read(5_000_001)
+    if __import__('hashlib').sha256(remote).hexdigest()!=c.sha(archive):raise c.Hold('DRAFT_STORAGE_READBACK')
     def finish(v):
         journal.owned(v);v['generation']['cycles'][cycle].update(status=result['status'],video_sha256=result.get('video_sha256'),
             automated_quality_pass=result.get('automated_quality_pass',False),publication='HOLD',persisted=True,
