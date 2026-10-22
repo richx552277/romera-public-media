@@ -197,6 +197,15 @@
       "epoch": 2,
       "previous": "ff4c1df79dd01cc655512f756103bf50aa8beedb9c533b6eadf3b06855576c1f",
       "hash": "94b22b0a6679aa24115a63aeff53e1e7022b22d65b69806546ffa618ea70e9b0"
+    },
+    {
+      "seq": 13,
+      "at": "2026-10-22T05:54:28.839209+00:00",
+      "kind": "DRAFT_RENDER_AND_RESTORE_EVIDENCE_RECONCILED",
+      "run": "render-evidence-reconciliation",
+      "epoch": 2,
+      "previous": "94b22b0a6679aa24115a63aeff53e1e7022b22d65b69806546ffa618ea70e9b0",
+      "hash": "2afc698f5b51294af896243e01ca4a67c23832a2ea21ed7e83dc78e8c437c70b"
     }
   ],
   "handoff": {
@@ -237,11 +246,10 @@
         "status": "HOLD_AUTO_QA",
         "run": "39729261771",
         "at": "2026-10-22T05:41:07.368844+00:00",
-        "reason": "ValueError parsing cycle suffix before planner; official Gemma tag also changed",
-        "rendered": false,
+        "reason": "REVIEWER_CALIBRATION_FAILED",
+        "rendered": true,
         "meta_requests": 0,
         "live_job": "skipped",
-        "reviewed_run": "https://github.com/richx552277/romera-public-media/actions/runs/39728567688",
         "retry_authority": "current direct task authorizes technical failure repair; no Meta retry",
         "resume_allowed": false,
         "prior_runs": [
@@ -304,7 +312,10 @@
             "done_reason": "stop",
             "eval_count": 69
           }
-        ]
+        ],
+        "quarantine_restore_verified": true,
+        "restore_run": "39730246500",
+        "superseded_failure_run": "https://github.com/richx552277/romera-public-media/actions/runs/39728567688"
       }
     }
   },
