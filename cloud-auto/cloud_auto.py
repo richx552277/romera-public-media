@@ -38,7 +38,7 @@ def request(method, url, token=None, payload=None):
         with ur.build_opener(NoRedirect()).open(req, timeout=45) as r:
             raw=r.read(8_000_001)
             if len(raw)>8_000_000: raise Hold('RESPONSE_LIMIT')
-            return json.loads(raw)
+            return json.loads(raw) if raw else {}
     except ue.HTTPError as ex:
         code=None; sub=None
         try:

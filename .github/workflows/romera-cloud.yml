@@ -6,7 +6,7 @@ on:
         description: rehearsal, draft, or gated live
         type: choice
         default: rehearsal
-        options: [rehearsal, draft, live]
+        options: [rehearsal, draft, probe, live]
   schedule:
     - cron: '13 0 * * 1,4'
     - cron: '7,37 * * * *'
@@ -16,6 +16,36 @@ concurrency:
   group: romera-account-17841449382124561-epoch2
   cancel-in-progress: false
 jobs:
+  monitor:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Read-only cloud heartbeat
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python cloud-auto/cloud_monitor.py
+      - name: Current operating status
+        if: always()
+        run: cat cloud-auto/monitor-result.json >> "$GITHUB_STEP_SUMMARY"
+  probe:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'probe'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Safely verify cloud-held Meta identity, no media POST
+        env:
+          IG_TOKEN_ROMANCE_JP: ${{ secrets.META_ACCESS_TOKEN }}
+        run: python cloud-auto/cloud_auto.py probe --output cloud-auto/probe-result.json
+      - name: Credential-safe evidence
+        if: always()
+        run: cat cloud-auto/probe-result.json >> "$GITHUB_STEP_SUMMARY"
   rehearsal:
     if: github.event_name == 'workflow_dispatch' && inputs.mode == 'rehearsal'
     runs-on: ubuntu-24.04
