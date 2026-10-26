@@ -224,6 +224,15 @@
       "epoch": 2,
       "previous": "ad43191c5aa17358bcd35a9937a8d94c1fb367a70d2615e112a20c9405fe3df9",
       "hash": "930fadb8ea5f3f57307077206bcac054de20485ee7add2c2edfcb98d9cf8fee1"
+    },
+    {
+      "seq": 16,
+      "at": "2026-10-26T04:40:53.416074+00:00",
+      "kind": "DRAFT_INTENT",
+      "run": "40270139165",
+      "epoch": 2,
+      "previous": "930fadb8ea5f3f57307077206bcac054de20485ee7add2c2edfcb98d9cf8fee1",
+      "hash": "15d08bcf0532d4d6a9be4f374f498f0a5039824d51789eadb0598463b36694a6"
     }
   ],
   "handoff": {
@@ -334,6 +343,12 @@
         "quarantine_restore_verified": true,
         "restore_run": "39730246500",
         "superseded_failure_run": "https://github.com/richx552277/romera-public-media/actions/runs/39728567688"
+      },
+      "cloud-20261026": {
+        "status": "DRAFT_INTENT",
+        "run": "40270139165",
+        "at": "2026-10-26T04:40:53.416060+00:00",
+        "resume_allowed": false
       }
     }
   },
