@@ -6,7 +6,7 @@
   "support": "ZF-DEV",
   "epoch": 2,
   "kill_switch": true,
-  "active_run": null,
+  "active_run": "40824695843",
   "jobs": [
     {
       "id": "romera-001",
@@ -251,6 +251,15 @@
       "epoch": 2,
       "previous": "c7450a3582e54898fdaa612d7587c1734e4aaa625b571e7a5f462053ee0d64a5",
       "hash": "befe83509e995c5e65f65069283c023d94711c983276ef095399f9f805c2911c"
+    },
+    {
+      "seq": 19,
+      "at": "2026-10-29T05:42:46.321984+00:00",
+      "kind": "LOCK_ACQUIRED",
+      "run": "40824695843",
+      "epoch": 2,
+      "previous": "befe83509e995c5e65f65069283c023d94711c983276ef095399f9f805c2911c",
+      "hash": "a41a5a5a481239856cfb2393563165e8c63cbaf76bfa53de0dc9b83d8a7da44a"
     }
   ],
   "handoff": {
