@@ -413,6 +413,15 @@
       "epoch": 2,
       "previous": "621aa3da05e625aad5e031b8cff8c7e5ce1c1e5e596a9b177b4fbed8add81e87",
       "hash": "ea7ead4d6ee79c2092818b0eaef7e556de92e373b6856759760f6c5a86584431"
+    },
+    {
+      "seq": 37,
+      "at": "2026-11-12T07:08:01.766730+00:00",
+      "kind": "DRAFT_RECORDED",
+      "run": "43172487603",
+      "epoch": 2,
+      "previous": "ea7ead4d6ee79c2092818b0eaef7e556de92e373b6856759760f6c5a86584431",
+      "hash": "9fce4643ca4b4616bc8152c1079346ed2b1c46dfcb738f114f57942e1c192964"
     }
   ],
   "handoff": {
@@ -920,10 +929,83 @@
         ]
       },
       "cloud-20261112": {
-        "status": "DRAFT_INTENT",
+        "status": "HOLD_AUTO_QA",
         "run": "43172487603",
         "at": "2026-11-12T07:05:33.811453+00:00",
-        "resume_allowed": false
+        "resume_allowed": false,
+        "video_sha256": "120328ff677a449712074c8177481b2d6f3d9147b70057bd94ac03d07073d411",
+        "rendered": true,
+        "reason": "HOLD_AUTO_QA",
+        "automated_quality_pass": false,
+        "publication": "HOLD",
+        "persisted": true,
+        "archive_path": "cloud-auto/private-drafts/cloud-20261112-43172487603.nacl",
+        "archive_sha256": "82efa1055940f4c650a4127b9f980cd3ce8b4de4c608b27d13020c0432d3a735",
+        "encrypted": true,
+        "storage_readback": true,
+        "encryption_roundtrip": true,
+        "provider_diagnostics": [
+          {
+            "path": "cycles/cloud-20261109/visual-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 47
+          },
+          {
+            "path": "cycles/cloud-20261112/visual-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 90
+          },
+          {
+            "path": "cycles/cloud-20261109/attempt-1/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 73
+          },
+          {
+            "path": "cycles/cloud-20261109/attempt-1/planner-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 69
+          },
+          {
+            "path": "cycles/cloud-20261112/attempt-1/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 89
+          },
+          {
+            "path": "cycles/cloud-20261112/attempt-1/planner-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 72
+          },
+          {
+            "path": "calibration/qwen2.5-unshown-props/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 76
+          },
+          {
+            "path": "calibration/qwen2.5-positive/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 72
+          },
+          {
+            "path": "calibration/gemma3-positive/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 55
+          },
+          {
+            "path": "calibration/gemma3-unshown-props/language-review-provider.json",
+            "done": true,
+            "done_reason": "stop",
+            "eval_count": 60
+          }
+        ]
       }
     }
   },
