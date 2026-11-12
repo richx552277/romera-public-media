@@ -404,6 +404,15 @@
       "epoch": 2,
       "previous": "6f0119fb2fa09a179628278c8196e87c60cd956ce6a9b4232c8f08d03e948846",
       "hash": "621aa3da05e625aad5e031b8cff8c7e5ce1c1e5e596a9b177b4fbed8add81e87"
+    },
+    {
+      "seq": 36,
+      "at": "2026-11-12T07:05:33.811462+00:00",
+      "kind": "DRAFT_INTENT",
+      "run": "43172487603",
+      "epoch": 2,
+      "previous": "621aa3da05e625aad5e031b8cff8c7e5ce1c1e5e596a9b177b4fbed8add81e87",
+      "hash": "ea7ead4d6ee79c2092818b0eaef7e556de92e373b6856759760f6c5a86584431"
     }
   ],
   "handoff": {
@@ -909,6 +918,12 @@
             "eval_count": 60
           }
         ]
+      },
+      "cloud-20261112": {
+        "status": "DRAFT_INTENT",
+        "run": "43172487603",
+        "at": "2026-11-12T07:05:33.811453+00:00",
+        "resume_allowed": false
       }
     }
   },
